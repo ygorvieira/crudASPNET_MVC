@@ -1,0 +1,40 @@
+﻿@model LojaYgor3.Models.Produto
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+<div>
+    <h4>Produto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Nome</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>Preço</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+        <dt>Data do Pedido</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+        <dt>Cliente</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nome)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Atualiza", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

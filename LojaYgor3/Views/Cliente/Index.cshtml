@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LojaYgor3.Models.Cliente>
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Clientes</h2>
+
+<p>
+    @Html.ActionLink("Novo Cliente", "Adiciona")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>CPF</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPF)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Atualiza", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalha", new { id=item.Id }) |
+            @Html.ActionLink("Remover", "Remove", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

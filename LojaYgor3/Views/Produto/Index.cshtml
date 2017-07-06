@@ -1,0 +1,43 @@
+﻿@model IEnumerable<LojaYgor3.Models.Produto>
+
+@{
+    ViewBag.Title = "Produtos";
+}
+
+<h2>Produtos</h2>
+
+<p>
+    @Html.ActionLink("Novo Produto", "Adiciona")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Data do Pedido</th>
+        <th>Cliente</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Preco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Atualiza", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalha", new { id=item.Id }) |
+            @Html.ActionLink("Remover", "Remove", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
