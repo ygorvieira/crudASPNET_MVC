@@ -21,11 +21,8 @@ namespace LojaYgor3.Controllers
         // GET: Cliente/Details/5
         public ActionResult Detalha(int id)
         {
-            var cliente = (from c in contexto.Clientes
-                           where c.Id == id
-                           select c).First();
-            return View(cliente);
-        }
+            return GetCliente(id);
+        }        
 
         // GET: Cliente/Create
         public ActionResult Adiciona()
@@ -57,10 +54,7 @@ namespace LojaYgor3.Controllers
         // GET: Cliente/Edit/5
         public ActionResult Atualiza(int id)
         {
-            var cliente = (from c in contexto.Clientes
-                           where c.Id == id
-                           select c).First();
-            return View(cliente);
+            return GetCliente(id);
         }
 
         // POST: Cliente/Edit/5
@@ -88,10 +82,7 @@ namespace LojaYgor3.Controllers
         // GET: Cliente/Delete/5
         public ActionResult Remove(int id)
         {
-            var cliente = (from c in contexto.Clientes
-                           where c.Id == id
-                           select c).First();
-            return View(cliente);
+            return GetCliente(id);
         }
 
         // POST: Cliente/Delete/5
@@ -111,6 +102,14 @@ namespace LojaYgor3.Controllers
             {
                 return View();
             }
+        }
+
+        private ActionResult GetCliente(int id)
+        {
+            var cliente = (from c in contexto.Clientes
+                           where c.Id == id
+                           select c).First();
+            return View(cliente);
         }
     }
 }

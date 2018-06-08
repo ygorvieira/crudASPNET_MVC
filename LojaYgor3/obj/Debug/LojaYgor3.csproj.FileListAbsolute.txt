@@ -50,3 +50,4 @@ c:\users\ygor vieira\documents\visual studio 2015\Projects\LojaYgor3\LojaYgor3\o
 c:\users\ygor vieira\documents\visual studio 2015\Projects\LojaYgor3\LojaYgor3\obj\Debug\LojaYgor3.pdb
 c:\users\ygor vieira\documents\visual studio 2015\Projects\LojaYgor3\LojaYgor3\obj\Debug\LojaYgor3.Migrations.TabelasLoja.resources
 c:\users\ygor vieira\documents\visual studio 2015\Projects\LojaYgor3\LojaYgor3\obj\Debug\LojaYgor3.csproj.GenerateResource.Cache
+C:\Users\Ygor Vieira\Documents\Visual Studio 2015\Projects\LojaYgor3\LojaYgor3\obj\Debug\LojaYgor3.csproj.CoreCompileInputs.cache

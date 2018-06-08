@@ -22,9 +22,14 @@ namespace LojaYgor3.Controllers
         // GET: Produto/Details/5
         public ActionResult Detalha(int id)
         {
+            return GetProduto(id);
+        }
+
+        private ActionResult GetProduto(int id)
+        {
             var produto = (from p in contexto.Produtos.Include(p => p.Cliente)
-                            where p.Id == id
-                            select p).First();
+                           where p.Id == id
+                           select p).First();
             return View(produto);
         }
 
@@ -61,12 +66,9 @@ namespace LojaYgor3.Controllers
         // GET: Produto/Edit/5
         public ActionResult Atualiza(int id)
         {
-            var produto = (from p in contexto.Produtos.Include(p => p.Cliente)
-                            where p.Id == id
-                            select p).First();
-            ViewBag.ClienteId = new SelectList(contexto.Clientes, "Id", "Nome", produto.ClienteId);
-            return View(produto);
+            return GetProdutoPorId(id);
         }
+
 
         // POST: Produto/Edit/5
         [HttpPost]
@@ -88,11 +90,7 @@ namespace LojaYgor3.Controllers
         // GET: Produto/Delete/5
         public ActionResult Remove(int id)
         {
-            var produto = (from p in contexto.Produtos.Include(p => p.Cliente)
-                            where p.Id == id
-                            select p).First();
-            ViewBag.ClienteId = new SelectList(contexto.Clientes, "Id", "Nome", produto.ClienteId);
-            return View(produto);
+            return GetProdutoPorId(id);
         }
 
         // POST: Produto/Delete/5
@@ -111,6 +109,15 @@ namespace LojaYgor3.Controllers
             {
                 return View();
             }
+        }
+
+        private ActionResult GetProdutoPorId(int id)
+        {
+            var produto = (from p in contexto.Produtos.Include(p => p.Cliente)
+                           where p.Id == id
+                           select p).First();
+            ViewBag.ClienteId = new SelectList(contexto.Clientes, "Id", "Nome", produto.ClienteId);
+            return View(produto);
         }
     }
 }
